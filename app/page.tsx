@@ -26,7 +26,7 @@ export default function Home() {
       <header className='flex w-screen justify-around flex-wrap gap-2 py-4 px-2 min-h-[80dvh] items-center'>
         <div className='min-w-[300px] flex flex-col justify-around gap-16'>
           <div className='flex flex-col gap-8 text-center'>
-            <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase'>
+            <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-lg'>
               NextLevel Food <br /> for NextLevel Foodies
             </h1>
             <p className='italic text-wrap font-light text-lg'>
@@ -48,18 +48,19 @@ export default function Home() {
             </Link>
           </div>
         </div>
-
-        <Slider
-          imageList={IMAGES}
-          width={400}
-          loop={true}
-          autoPlay={true}
-          autoPlayInterval={4000}
-          height={300}
-          showArrowControls={false}
-          showDotControls={false}
-          bgColor='#000'
-        />
+        <div className='overflow-hidden rounded-md shadow-lg shadow-gray-700'>
+          <Slider
+            imageList={IMAGES}
+            width={400}
+            loop={true}
+            autoPlay={true}
+            autoPlayInterval={4000}
+            height={300}
+            showArrowControls={false}
+            showDotControls={false}
+            bgColor='#000'
+          />
+        </div>
       </header>
 
       <section className='w-screen min-h-[500px] px-4 py-2 bg-amber-600 text-slate-50 text-center leading-relaxed relative'>

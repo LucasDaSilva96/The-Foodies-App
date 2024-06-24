@@ -4,9 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logoImg from '@/assets/icons/icon.png';
 import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const path = usePathname();
+
   return (
     <header className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2'>
       <aside className='flex gap-1 items-center min-w-52'>
@@ -23,25 +26,35 @@ export default function Header() {
       <div className='hidden lg:block w-full'>
         <nav className=' flex items-center justify-evenly py-4'>
           <Link
-            className='transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/' ? 'border-amber-600' : 'border-transparent'
+            } transition-all border-b-2 hover:border-amber-600`}
             href={'/'}
           >
             Home
           </Link>
           <Link
-            className='transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/meals' ? 'border-amber-600' : 'border-transparent'
+            } transition-all border-b-2  hover:border-amber-600`}
             href={'/meals'}
           >
             Meals
           </Link>
           <Link
-            className='transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/meals/share'
+                ? 'border-amber-600'
+                : 'border-transparent'
+            } transition-all border-b-2  hover:border-amber-600`}
             href={'/meals/share'}
           >
             Share Meal
           </Link>
           <Link
-            className='transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/community' ? 'border-amber-600' : 'border-transparent'
+            } transition-all border-b-2  hover:border-amber-600`}
             href={'/community'}
           >
             Community
@@ -61,25 +74,37 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           />
           <Link
-            className='text-center transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/' ? 'scale-125 text-amber-500' : 'no-underline'
+            } text-center transition-all `}
             href={'/'}
           >
             Home
           </Link>
           <Link
-            className='text-center transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/meals' ? 'scale-125 text-amber-500' : 'no-underline'
+            } text-center transition-all `}
             href={'/meals'}
           >
             Meals
           </Link>
           <Link
-            className='text-center transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/meals/share'
+                ? 'scale-125 text-amber-500'
+                : 'no-underline'
+            } text-center transition-all `}
             href={'/meals/share'}
           >
             Share Meal
           </Link>
           <Link
-            className='text-center transition-all border-b-2 border-transparent hover:border-amber-600'
+            className={`${
+              path === '/community'
+                ? 'scale-125 text-amber-500'
+                : 'no-underline'
+            } text-center transition-all `}
             href={'/community'}
           >
             Community

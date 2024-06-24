@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@madzadev/image-slider": "^2.0.1",
+    "@types/better-sqlite3": "^7.6.10",
+    "better-sqlite3": "^11.0.0",
     "lucide": "^0.396.0",
     "lucide-react": "^0.263.1",
     "next": "14.2.4",
