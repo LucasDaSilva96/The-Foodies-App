@@ -11,4 +11,7 @@
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  min-height: 100dvh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }

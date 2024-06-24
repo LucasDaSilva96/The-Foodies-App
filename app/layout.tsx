@@ -17,12 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={
-          inter.className +
-          ' w-screen overflow-x-hidden h-screen flex flex-col py-2 px-2 bg-black text-white'
-        }
-      >
+      <body className={inter.className}>
         <Header />
         {children}
       </body>
