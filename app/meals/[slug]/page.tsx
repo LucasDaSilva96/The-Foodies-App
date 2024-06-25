@@ -9,7 +9,12 @@ type SlugProps = {
 export default function MealSlugPage({ params }: SlugProps) {
   const meal = getMeal(params.slug);
 
-  if (!meal) return <h1>The selected meal was not found. Please try again.</h1>;
+  if (!meal)
+    return (
+      <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md'>
+        The selected meal was not found. Please try again.
+      </h1>
+    );
 
   if (meal.instructions) {
     meal.instructions = meal.instructions.replace(/\n/g, '<br />');
