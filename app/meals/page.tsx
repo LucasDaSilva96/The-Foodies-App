@@ -1,11 +1,16 @@
 import MealsGrid from '@/components/MealsGrid';
 import { getMeals } from '@/lib/meals';
 import Link from 'next/link';
-import React from 'react';
+import { LoaderIcon } from 'lucide-react';
+import React, { Suspense } from 'react';
 
-export default async function MealsPage() {
+async function Meals() {
   const meals = await getMeals();
 
+  return <MealsGrid mealItems={meals} />;
+}
+
+export default async function MealsPage() {
   return (
     <>
       <header className='w-full min-h-64 text-center py-10 px-2'>
@@ -24,7 +29,17 @@ export default async function MealsPage() {
           Share Your Favorite Recipe
         </Link>
       </header>
-      <main>{meals.length > 0 && <MealsGrid mealItems={meals} />}</main>
+      <main>
+        <Suspense
+          fallback={
+            <div className='w-screen flex items-center'>
+              <LoaderIcon className='motion-safe:animate-spin' />
+            </div>
+          }
+        >
+          <Meals />
+        </Suspense>
+      </main>
     </>
   );
 }

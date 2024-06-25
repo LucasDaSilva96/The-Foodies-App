@@ -16,3 +16,11 @@ export async function getMeals() {
     return [];
   }
 }
+
+export function getMeal(slug: string) {
+  const res = db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
+
+  const meal: Meal = res as Meal;
+
+  return meal;
+}
