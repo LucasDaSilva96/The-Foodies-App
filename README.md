@@ -8,7 +8,6 @@ The Foodies App is a web application built with Next.js that allows users to exp
 - Search for specific recipes or ingredients to find exactly what you're looking for.
 - Save your favorite recipes to easily access them later.
 - Create a personalized profile to track your cooking journey and share your own recipes with the community.
-- Get inspired with weekly featured recipes and cooking tips from renowned chefs.
 
 ## Technologies Used
 
@@ -31,4 +30,4 @@ We welcome contributions from the community to make The Foodies App even better.
 
 ## License
 
-The Foodies App is released under the MIT License. See the [LICENSE](https://github.com/your-username/the-foodies-app/blob/main/LICENSE) file for more details.
+The Foodies App is released under the MIT License. See the [LICENSE](https://github.com/LucasDaSilva96/The-Foodies-App/blob/main/LICENSE) file for more details.
