@@ -1,5 +1,80 @@
+import ImagePicker from '@/components/ImagePicker';
 import React from 'react';
+import { Image as ImageSvg } from 'lucide-react';
 
 export default function ShareMealPage() {
-  return <div>Share a meal page</div>;
+  async function shareMeal() {
+    'use server';
+  }
+
+  return (
+    <>
+      <header>
+        <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md text-center py-2'>
+          Share a meal
+        </h1>
+      </header>
+      <main className='w-full h-full flex items-center justify-center py-2 px-2'>
+        <form className='bg-amber-500 py-2 px-2 max-w-lg rounded-md shadow-md flex flex-col gap-2'>
+          <div className='flex items-center justify-between flex-wrap gap-2'>
+            <div className='flex flex-col gap-1'>
+              <label htmlFor='name'>Name</label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                required
+                autoComplete='true'
+                className='py-1 rounded-md px-1'
+              />
+            </div>
+
+            <div className='flex flex-col gap-1'>
+              <label htmlFor='email'>Email</label>
+              <input
+                id='email'
+                name='email'
+                type='email'
+                required
+                autoComplete='true'
+                className='py-1 rounded-md px-1'
+              />
+            </div>
+          </div>
+
+          <div className='flex flex-col gap-1'>
+            <label htmlFor='title'>Title</label>
+            <input
+              id='title'
+              name='title'
+              required
+              className='py-1 rounded-md px-1'
+            />
+          </div>
+
+          <div className='flex flex-col gap-1'>
+            <label htmlFor='summary'>Short Summary</label>
+            <textarea
+              id='summary'
+              name='summary'
+              rows={3}
+              className='py-1 rounded-md px-1'
+            />
+          </div>
+
+          <ImagePicker
+            label='Choose an image'
+            svg={<ImageSvg />}
+            name='image'
+          />
+          <button
+            className='bg-slate-50 py-1 rounded-md transition-all will-change-auto cursor-pointer hover:bg-black hover:text-slate-50 font-medium'
+            type='submit'
+          >
+            Share
+          </button>
+        </form>
+      </main>
+    </>
+  );
 }
