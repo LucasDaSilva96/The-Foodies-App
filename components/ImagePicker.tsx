@@ -54,7 +54,10 @@ export default function ImagePicker({ label, name, svg }: ImagePickerProps) {
           <button
             type='button'
             className='bg-transparent transition-colors hover:bg-red-500  py-2 rounded-md overflow-hidden px-4 border border-black hover:border-transparent'
-            onClick={() => setFile(null)}
+            onClick={() => {
+              setFile(null);
+              inputRef.current!.value = '';
+            }}
           >
             Remove
           </button>
@@ -62,7 +65,7 @@ export default function ImagePicker({ label, name, svg }: ImagePickerProps) {
       </div>
 
       {file && (
-        <div className='w-full max-h-[155px] md:max-h-[200px] overflow-y-auto flex justify-center items-center'>
+        <div className='w-full max-h-[155px] md:max-h-[200px] overflow-y-auto flex justify-center items-center '>
           <div className='flex flex-col max-w-[70%] items-center'>
             <Image
               src={URL.createObjectURL(file)}
@@ -70,7 +73,7 @@ export default function ImagePicker({ label, name, svg }: ImagePickerProps) {
               width={'0'}
               height={'0'}
               loading='lazy'
-              className='w-auto h-auto'
+              className='w-auto h-auto aspect-auto '
             />
           </div>
         </div>

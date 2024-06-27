@@ -1,12 +1,9 @@
 import ImagePicker from '@/components/ImagePicker';
 import React from 'react';
 import { Image as ImageSvg } from 'lucide-react';
+import { shareMeal } from '@/lib/actions';
 
-export default function ShareMealPage() {
-  async function shareMeal() {
-    'use server';
-  }
-
+export default async function ShareMealPage() {
   return (
     <>
       <header>
@@ -15,7 +12,10 @@ export default function ShareMealPage() {
         </h1>
       </header>
       <main className='w-full h-full flex items-center justify-center py-2 px-2'>
-        <form className='bg-amber-500 py-2 px-2 max-w-lg rounded-md shadow-md flex flex-col gap-2'>
+        <form
+          action={shareMeal}
+          className='bg-amber-500 py-2 px-2 max-w-lg rounded-md shadow-md flex flex-col gap-2'
+        >
           <div className='flex items-center justify-between flex-wrap gap-2'>
             <div className='flex flex-col gap-1'>
               <label htmlFor='name'>Name</label>
@@ -47,6 +47,7 @@ export default function ShareMealPage() {
             <input
               id='title'
               name='title'
+              type='text'
               required
               className='py-1 rounded-md px-1'
             />
@@ -54,10 +55,22 @@ export default function ShareMealPage() {
 
           <div className='flex flex-col gap-1'>
             <label htmlFor='summary'>Short Summary</label>
-            <textarea
+            <input
               id='summary'
               name='summary'
+              type='text'
+              required
+              className='py-1 rounded-md px-1'
+            />
+          </div>
+
+          <div className='flex flex-col gap-1'>
+            <label htmlFor='instructions'>Instructions</label>
+            <textarea
+              id='instructions'
               rows={3}
+              name='instructions'
+              required
               className='py-1 rounded-md px-1'
             />
           </div>
