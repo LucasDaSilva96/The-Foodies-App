@@ -1,5 +1,8 @@
 # The Foodies App
 
+![Main page](./public/img/NextLevelFood-1.png)
+![Meals page](./public/img/NextLevelFood-2.png)
+
 The Foodies App is a web application built with Next.js that allows users to explore and discover various recipes from around the world. Whether you're a seasoned chef or a beginner in the kitchen, The Foodies App has something for everyone.
 
 ## Features
