@@ -38,16 +38,12 @@ export function getMeal(slug: string) {
 export async function saveMeal(meal: Meal) {
   meal.slug = meal.title.toLowerCase().replace(/\s/g, '-');
 
-  console.log(meal.image);
-
   if (meal.image.name !== 'undefined' && meal.image.size > 0) {
     // Save the image to the public/images directory
     const extension = meal.image.name.split('.').pop();
-    const fileName = `${meal.title}-${Date.now()}.${extension}`;
+    const fileName = `${meal.title}${Date.now()}.${extension}`.toLowerCase();
 
     const bufferedImage = await meal.image.arrayBuffer();
-
-    console.log(fileName);
 
     s3.putObject({
       Bucket: 'lucasdasilva-nextjs-users-image',
@@ -57,10 +53,12 @@ export async function saveMeal(meal: Meal) {
     });
 
     // Insert the meal into the database
-    meal.image = fileName;
+    meal.image =
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/' +
+      fileName;
   } else {
     meal.image =
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/gallery.png';
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/gallery.png';
   }
 
   db.prepare(

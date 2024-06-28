@@ -6,7 +6,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com',
         port: '',
-        pathname: '/images/**',
       },
     ],
   },

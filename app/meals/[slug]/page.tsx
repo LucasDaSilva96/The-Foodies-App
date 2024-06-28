@@ -31,14 +31,11 @@ export default function MealSlugPage({ params }: SlugProps) {
         </h1>
 
         <Image
-          src={
-            'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/' +
-            meal.image
-          }
+          src={meal.image}
           alt={meal.title}
           width={300}
           height={300}
-          className='shadow-lg rounded-md'
+          className='shadow-lg rounded-md h-auto w-auto'
         />
 
         <p>

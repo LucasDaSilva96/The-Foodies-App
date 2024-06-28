@@ -6,7 +6,7 @@ const dummyMeals = [
     title: 'Juicy Cheese Burger',
     slug: 'juicy-cheese-burger',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/burger.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/burger.jpg',
     summary:
       'A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.',
     instructions: `
@@ -29,7 +29,7 @@ const dummyMeals = [
     title: 'Spicy Curry',
     slug: 'spicy-curry',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/curry.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/curry.jpg',
     summary:
       'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
     instructions: `
@@ -55,7 +55,7 @@ const dummyMeals = [
     title: 'Homemade Dumplings',
     slug: 'homemade-dumplings',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/dumplings.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/dumplings.jpg',
     summary:
       'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
     instructions: `
@@ -78,7 +78,7 @@ const dummyMeals = [
     title: 'Classic Mac n Cheese',
     slug: 'classic-mac-n-cheese',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/macncheese.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/macncheese.jpg',
     summary:
       "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
     instructions: `
@@ -104,7 +104,7 @@ const dummyMeals = [
     title: 'Authentic Pizza',
     slug: 'authentic-pizza',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/pizza.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/pizza.jpg',
     summary:
       'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
     instructions: `
@@ -127,7 +127,7 @@ const dummyMeals = [
     title: 'Wiener Schnitzel',
     slug: 'wiener-schnitzel',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/schnitzel.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/schnitzel.jpg',
     summary:
       'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
     instructions: `
@@ -150,7 +150,7 @@ const dummyMeals = [
     title: 'Fresh Tomato Salad',
     slug: 'fresh-tomato-salad',
     image:
-      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/tomato-salad.jpg',
+      'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/tomato-salad.jpg',
     summary:
       'A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.',
     instructions: `
@@ -175,7 +175,7 @@ db.prepare(
   `
    CREATE TABLE IF NOT EXISTS meals (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL UNIQUE,
+       slug TEXT NOT NULL,
        title TEXT NOT NULL,
        image TEXT NOT NULL,
        summary TEXT NOT NULL,
