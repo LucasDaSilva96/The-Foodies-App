@@ -2,6 +2,7 @@ import ImagePicker from '@/components/ImagePicker';
 import React from 'react';
 import { Image as ImageSvg } from 'lucide-react';
 import { shareMeal } from '@/lib/actions';
+import MealsFormSubmit from '@/components/MealsFormSubmit';
 
 export default async function ShareMealPage() {
   return (
@@ -80,12 +81,7 @@ export default async function ShareMealPage() {
             svg={<ImageSvg />}
             name='image'
           />
-          <button
-            className='bg-slate-50 py-1 rounded-md transition-all will-change-auto cursor-pointer hover:bg-black hover:text-slate-50 font-medium'
-            type='submit'
-          >
-            Share
-          </button>
+          <MealsFormSubmit />
         </form>
       </main>
     </>

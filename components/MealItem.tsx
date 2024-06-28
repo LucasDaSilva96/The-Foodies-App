@@ -4,7 +4,7 @@ import React from 'react';
 
 export type Meal = {
   title: string;
-  slug: string;
+  slug?: string;
   image: string | any;
   summary: string;
   creator: string;
@@ -29,7 +29,7 @@ export default function MealItem({
           alt={title}
           width={200}
           height={200}
-          className='rounded-md'
+          className='rounded-md h-auto w-auto'
         />
         <div className='px-2 py-2'>
           <h2 className='text-lg text-amber-600 font-bold tracking-normal uppercase '>
@@ -54,7 +54,7 @@ export default function MealItem({
         {creator_email && <span className='py-1'>{creator_email}</span>}
       </div>
       <Link
-        className='font-semibold py-1 px-2 bg-amber-600 text-slate-50 rounded-md will-change-auto transition-colors hover:bg-slate-50 hover:text-amber-600 border border-transparent hover:border-amber-500'
+        className='font-semibold py-1 px-2 bg-amber-600 text-slate-50 rounded-md will-change-auto transition-colors hover:bg-slate-50 hover:text-amber-600 border border-transparent hover:border-amber-500 mt-auto'
         href={`/meals/${slug}`}
       >
         View Details

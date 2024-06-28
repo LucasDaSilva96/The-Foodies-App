@@ -1,3 +1,4 @@
+import BackBtn from '@/components/BackBtn';
 import { getMeal } from '@/lib/meals';
 import Image from 'next/image';
 import React from 'react';
@@ -22,12 +23,18 @@ export default function MealSlugPage({ params }: SlugProps) {
   return (
     <>
       <header className='w-full pt-6 px-4 flex flex-col items-center gap-3'>
+        <div className='self-start py-1'>
+          <BackBtn url='/meals' />
+        </div>
         <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md'>
           {meal.title}
         </h1>
 
         <Image
-          src={meal.image}
+          src={
+            'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/images/' +
+            meal.image
+          }
           alt={meal.title}
           width={300}
           height={300}
@@ -52,6 +59,7 @@ export default function MealSlugPage({ params }: SlugProps) {
         <div className='max-w-lg overflow-y-auto max-h-[300px] bg-zinc-700 text-slate-50 py-2 px-2 rounded-md'>
           {meal.instructions && (
             <p
+              className='min-w-72 min-h-[100px]'
               dangerouslySetInnerHTML={{
                 __html: meal.instructions,
               }}

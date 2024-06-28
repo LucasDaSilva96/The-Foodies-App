@@ -1,24 +1,6 @@
 'use client';
+import ImageSlideGallery from '@/components/ImageSlideGallery';
 import Link from 'next/link';
-import burger from '@/assets/images/burger.jpg';
-import curry from '@/assets/images/curry.jpg';
-import dumplings from '@/assets/images/dumplings.jpg';
-import macncheese from '@/assets/images/macncheese.jpg';
-import pizza from '@/assets/images/pizza.jpg';
-import schnitzel from '@/assets/images/schnitzel.jpg';
-import tomatoSalad from '@/assets/images/tomato-salad.jpg';
-import Slider from '@madzadev/image-slider';
-import '@madzadev/image-slider/dist/index.css';
-
-const IMAGES = [
-  { url: burger.src },
-  { url: curry.src },
-  { url: dumplings.src },
-  { url: macncheese.src },
-  { url: pizza.src },
-  { url: schnitzel.src },
-  { url: tomatoSalad.src },
-];
 
 export default function Home() {
   return (
@@ -48,19 +30,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className='overflow-hidden rounded-md shadow-lg shadow-gray-700'>
-          <Slider
-            imageList={IMAGES}
-            width={400}
-            loop={true}
-            autoPlay={true}
-            autoPlayInterval={4000}
-            height={300}
-            showArrowControls={false}
-            showDotControls={false}
-            bgColor='#000'
-          />
-        </div>
+        <ImageSlideGallery />
       </header>
 
       <section className='w-screen min-h-[500px] px-4 py-2 bg-amber-600 text-slate-50 text-center leading-relaxed relative'>

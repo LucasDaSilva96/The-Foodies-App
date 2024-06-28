@@ -7,7 +7,11 @@ import React, { Suspense } from 'react';
 async function Meals() {
   const meals = await getMeals();
 
-  return <MealsGrid mealItems={meals} />;
+  return (
+    <div className='w-[85%]'>
+      <MealsGrid mealItems={meals} />
+    </div>
+  );
 }
 
 export default async function MealsPage() {
@@ -29,13 +33,9 @@ export default async function MealsPage() {
           Share Your Favorite Recipe
         </Link>
       </header>
-      <main>
+      <main className=' w-full flex items-center justify-center'>
         <Suspense
-          fallback={
-            <div className='w-screen flex items-center'>
-              <LoaderIcon className='motion-safe:animate-spin' />
-            </div>
-          }
+          fallback={<LoaderIcon className='motion-safe:animate-spin' />}
         >
           <Meals />
         </Suspense>

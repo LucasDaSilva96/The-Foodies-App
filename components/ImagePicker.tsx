@@ -87,10 +87,9 @@ export default function ImagePicker({ label, name, svg }: ImagePickerProps) {
           <Image
             src={imagePlaceHolder}
             alt='Default Image Placeholder'
-            width={'0'}
-            height={'0'}
-            loading='lazy'
-            className='w-32 h-32 object-cover rounded-md'
+            width={200}
+            height={200}
+            className='rounded-md h-auto w-auto'
           />
         </div>
       )}

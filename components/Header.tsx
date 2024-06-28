@@ -27,7 +27,9 @@ export default function Header() {
         <nav className=' flex items-center justify-evenly py-4'>
           <Link
             className={`${
-              path === '/' ? 'border-amber-600' : 'border-transparent'
+              path === '/'
+                ? 'border-amber-600 font-medium'
+                : 'border-transparent'
             } transition-all border-b-2 hover:border-amber-600`}
             href={'/'}
           >
@@ -35,7 +37,9 @@ export default function Header() {
           </Link>
           <Link
             className={`${
-              path === '/meals' ? 'border-amber-600' : 'border-transparent'
+              path === '/meals'
+                ? 'border-amber-600 font-medium'
+                : 'border-transparent'
             } transition-all border-b-2  hover:border-amber-600`}
             href={'/meals'}
           >
@@ -44,7 +48,7 @@ export default function Header() {
           <Link
             className={`${
               path === '/meals/share'
-                ? 'border-amber-600'
+                ? 'border-amber-600 font-medium'
                 : 'border-transparent'
             } transition-all border-b-2  hover:border-amber-600`}
             href={'/meals/share'}
@@ -53,7 +57,9 @@ export default function Header() {
           </Link>
           <Link
             className={`${
-              path === '/community' ? 'border-amber-600' : 'border-transparent'
+              path === '/community'
+                ? 'border-amber-600 font-medium'
+                : 'border-transparent'
             } transition-all border-b-2  hover:border-amber-600`}
             href={'/community'}
           >
