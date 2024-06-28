@@ -4,6 +4,11 @@ import mealIcon from '@/assets/icons/meal.png';
 import communityIcon from '@/assets/icons/community.png';
 import eventsIcon from '@/assets/icons/events.png';
 
+export const metadata = {
+  title: 'Community',
+  description: 'Join our community and share your favorite recipes!',
+};
+
 export default function CommunityPage() {
   return (
     <>

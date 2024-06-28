@@ -4,6 +4,11 @@ import Link from 'next/link';
 import { LoaderIcon } from 'lucide-react';
 import React, { Suspense } from 'react';
 
+export const metadata = {
+  title: 'Meals',
+  description: 'Delicious meals, created by you.',
+};
+
 async function Meals() {
   const meals = await getMeals();
 

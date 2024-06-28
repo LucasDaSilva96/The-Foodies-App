@@ -3,6 +3,11 @@ import { getMeal } from '@/lib/meals';
 import Image from 'next/image';
 import React from 'react';
 
+export const metadata = {
+  title: 'Share a meal',
+  description: 'share your favorite recipe with the world.',
+};
+
 type SlugProps = {
   params: { slug: string };
 };

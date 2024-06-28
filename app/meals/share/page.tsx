@@ -4,6 +4,11 @@ import { Image as ImageSvg } from 'lucide-react';
 import { shareMeal } from '@/lib/actions';
 import MealsFormSubmit from '@/components/MealsFormSubmit';
 
+export const metadata = {
+  title: 'Share a meal',
+  description: 'Share your favorite recipe with the world.',
+};
+
 export default async function ShareMealPage() {
   return (
     <>
