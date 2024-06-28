@@ -12,7 +12,7 @@ export const metadata = {
 export default async function ShareMealPage() {
   return (
     <>
-      <header>
+      <header className='w-full'>
         <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md text-center py-2'>
           Share a meal
         </h1>

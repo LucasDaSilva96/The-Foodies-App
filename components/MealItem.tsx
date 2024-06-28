@@ -29,6 +29,7 @@ export default function MealItem({
           alt={title}
           width={200}
           height={200}
+          loading='eager'
           className='rounded-md h-auto w-auto'
         />
         <div className='px-2 py-2'>

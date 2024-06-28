@@ -1,12 +1,27 @@
 import BackBtn from '@/components/BackBtn';
 import { getMeal } from '@/lib/meals';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import React from 'react';
 
-export const metadata = {
-  title: 'Share a meal',
-  description: 'share your favorite recipe with the world.',
+type GenerateMetadataProps = {
+  params: { slug: string };
 };
+
+export async function generateMetadata({ params }: GenerateMetadataProps) {
+  const meal = getMeal(params.slug);
+
+  if (!meal) {
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+    creator: meal.creator,
+    image: meal.image,
+  };
+}
 
 type SlugProps = {
   params: { slug: string };

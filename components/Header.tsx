@@ -80,6 +80,9 @@ export default function Header() {
             onClick={() => setIsOpen(false)}
           />
           <Link
+            onClick={() => {
+              setTimeout(() => setIsOpen(false), 300);
+            }}
             className={`${
               path === '/' ? 'scale-125 text-amber-500' : 'no-underline'
             } text-center transition-all `}
@@ -88,6 +91,9 @@ export default function Header() {
             Home
           </Link>
           <Link
+            onClick={() => {
+              setTimeout(() => setIsOpen(false), 300);
+            }}
             className={`${
               path === '/meals' ? 'scale-125 text-amber-500' : 'no-underline'
             } text-center transition-all `}
@@ -96,6 +102,9 @@ export default function Header() {
             Meals
           </Link>
           <Link
+            onClick={() => {
+              setTimeout(() => setIsOpen(false), 300);
+            }}
             className={`${
               path === '/meals/share'
                 ? 'scale-125 text-amber-500'
@@ -106,6 +115,9 @@ export default function Header() {
             Share Meal
           </Link>
           <Link
+            onClick={() => {
+              setTimeout(() => setIsOpen(false), 300);
+            }}
             className={`${
               path === '/community'
                 ? 'scale-125 text-amber-500'

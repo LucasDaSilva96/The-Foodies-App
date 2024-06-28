@@ -18,7 +18,7 @@ export default function Home() {
           <div className='flex items-center gap-4 w-full justify-around flex-wrap'>
             <Link
               href='/community'
-              className='font-semibold border-b border-amber-600 '
+              className='py-2 px-4 bg-transparent border border-amber-500 hover:bg-amber-600 text-black rounded-md hover:text-slate-50 will-change-transform transition-all hover:scale-105 cursor-pointer hover:shadow-lg font-semibold'
             >
               Join the Community
             </Link>

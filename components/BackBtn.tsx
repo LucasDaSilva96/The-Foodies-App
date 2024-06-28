@@ -17,7 +17,7 @@ export default function BackBtn({ url }: BackBtnProps) {
     <button
       type='button'
       onClick={handleNavigation}
-      className='bg-gradient-to-r from-amber-500 to-amber-600 text-slate-50 py-1 px-2 rounded-md shadow-md hover:shadow-lg transition-all will-change-auto hover:scale-105 font-medium'
+      className='bg-gradient-to-r from-amber-500 to-amber-600 text-slate-50 py-1 px-2 rounded-md shadow-md hover:shadow-lg transition-all will-change-auto hover:scale-105 font-medium z-30'
     >
       Back
     </button>
