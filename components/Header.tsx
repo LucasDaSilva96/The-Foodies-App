@@ -53,7 +53,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2'
+      className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2 '
     >
       <aside className='flex gap-1 items-center min-w-52'>
         <Image
@@ -111,13 +111,13 @@ export default function Header() {
         </nav>
       </div>
 
-      <aside ref={scope} className='pr-4 block lg:hidden z-50'>
+      <aside ref={scope} className='block lg:hidden'>
         <MenuToggle toggle={() => setIsOpen((prev) => !prev)} isOPen={isOpen} />
         <motion.nav
           initial={{ x: '150%' }}
           animate={{ x: isOpen ? 0 : '150%' }}
           transition={{ duration: 0.2, ease: 'linear' }}
-          className={`flex flex-col min-w-[300px] right-0 bg-zinc-700 text-slate-50 h-full overflow-y-auto top-0 transition-all pt-[6%] px-2 gap-4 absolute shadow-lg `}
+          className={`flex flex-col min-w-[300px] right-0 bg-zinc-700 text-slate-50 h-screen overflow-y-auto absolute top-0 transition-all pt-[6%] px-2 gap-4 shadow-lg z-10 `}
         >
           <Link
             onClick={() => {

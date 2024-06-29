@@ -14,4 +14,6 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }

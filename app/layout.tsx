@@ -19,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
-        <MotionDiv>{children}</MotionDiv>
+        <div className='relative max-w-screen overflow-x-hidden'>
+          <Header />
+          <MotionDiv>{children}</MotionDiv>
+        </div>
       </body>
     </html>
   );
