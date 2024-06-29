@@ -32,7 +32,7 @@ export async function shareMeal(formData: FormData) {
     await saveMeal(meal);
 
     // Wait for a short period to ensure the image is available
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Revalidate the meals page to show the new meal
     revalidatePath('/meals', 'page');

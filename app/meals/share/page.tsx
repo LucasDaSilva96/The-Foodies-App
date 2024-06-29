@@ -3,6 +3,7 @@ import React from 'react';
 import { Image as ImageSvg } from 'lucide-react';
 import { shareMeal } from '@/lib/actions';
 import MealsFormSubmit from '@/components/MealsFormSubmit';
+import BackBtn from '@/components/BackBtn';
 
 export const metadata = {
   title: 'Share a meal',
@@ -12,7 +13,10 @@ export const metadata = {
 export default async function ShareMealPage() {
   return (
     <>
-      <header className='w-full'>
+      <header className='w-screen relative'>
+        <div className='absolute top-4 left-4 hidden xs:block z-0 xs:z-50'>
+          <BackBtn url='/meals' />
+        </div>
         <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md text-center py-2'>
           Share a meal
         </h1>
