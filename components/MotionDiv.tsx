@@ -9,7 +9,7 @@ type MotionDivProps = {
 
 export function MotionDiv({ children }: MotionDivProps) {
   const param = usePathname();
-  console.log(param);
+
   return (
     <AnimatePresence key={param}>
       <motion.div

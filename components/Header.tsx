@@ -1,17 +1,60 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import logoImg from '@/assets/icons/icon.png';
-import { Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { motion, useAnimate } from 'framer-motion';
+import { MenuToggle } from './MenuToggle';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const path = usePathname();
+  const [scope, animate] = useAnimate();
+  const headerRef = useRef<HTMLHeadElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Hide the header on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        const is_Visible = rect.top === 0 || rect.top > -50;
+
+        setIsVisible(is_Visible);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  //
+  useEffect(() => {
+    animate([
+      [
+        'path.top',
+        { d: isOpen ? 'M 3 16.5 L 17 2.5' : 'M 2 2.5 L 20 2.5' },
+        { at: '<' },
+      ],
+      ['path.middle', { opacity: isOpen ? 0 : 1 }, { at: '<' }],
+      [
+        'path.bottom',
+        { d: isOpen ? 'M 3 2.5 L 17 16.346' : 'M 2 16.346 L 20 16.346' },
+        { at: '<' },
+      ],
+    ]);
+    if (!isVisible) setIsOpen(false);
+  }, [isOpen, isVisible]);
 
   return (
-    <header className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2'>
+    <header
+      ref={headerRef}
+      className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2'
+    >
       <aside className='flex gap-1 items-center min-w-52'>
         <Image
           src={logoImg}
@@ -68,20 +111,17 @@ export default function Header() {
         </nav>
       </div>
 
-      <aside className='pr-4 block lg:hidden z-50'>
-        <Menu className='cursor-pointer' onClick={() => setIsOpen(!isOpen)} />
-        <nav
-          className={`flex flex-col min-w-[300px] right-0 bg-zinc-700 text-slate-50 fixed h-screen overflow-y-auto top-0 transition-all py-2 px-2 gap-4 shadow-lg  ${
-            isOpen ? 'translate-x-[0]' : 'translate-x-[100dvw]'
-          }`}
+      <aside ref={scope} className='pr-4 block lg:hidden z-50'>
+        <MenuToggle toggle={() => setIsOpen((prev) => !prev)} isOPen={isOpen} />
+        <motion.nav
+          initial={{ x: '150%' }}
+          animate={{ x: isOpen ? 0 : '150%' }}
+          transition={{ duration: 0.2, ease: 'linear' }}
+          className={`flex flex-col min-w-[300px] right-0 bg-zinc-700 text-slate-50 h-full overflow-y-auto top-0 transition-all pt-[6%] px-2 gap-4 absolute shadow-lg `}
         >
-          <X
-            className='cursor-pointer self-end mt-4'
-            onClick={() => setIsOpen(false)}
-          />
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 200);
+              setIsOpen(false);
             }}
             className={`${
               path === '/' ? 'scale-125 text-amber-500' : 'no-underline'
@@ -92,7 +132,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 200);
+              setIsOpen(false);
             }}
             className={`${
               path === '/meals' ? 'scale-125 text-amber-500' : 'no-underline'
@@ -103,7 +143,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 200);
+              setIsOpen(false);
             }}
             className={`${
               path === '/meals/share'
@@ -116,7 +156,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 200);
+              setIsOpen(false);
             }}
             className={`${
               path === '/community'
@@ -127,7 +167,7 @@ export default function Header() {
           >
             Community
           </Link>
-        </nav>
+        </motion.nav>
       </aside>
     </header>
   );

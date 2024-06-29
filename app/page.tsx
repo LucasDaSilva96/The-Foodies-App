@@ -73,6 +73,7 @@ export default function Home() {
         <motion.div
           className='max-w-[600px] py-2 px-2 self-center'
           initial={{ opacity: 0 }}
+          // viewport={{ once: true }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: 'linear' }}
         >
@@ -89,6 +90,7 @@ export default function Home() {
           <motion.article
             className='flex gap-4 flex-wrap px-2 py-2 justify-center sm:justify-start'
             initial={{ x: -100, opacity: 0 }}
+            // viewport={{ once: true }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: 'linear', delay: 0.2 }}
           >
@@ -109,6 +111,7 @@ export default function Home() {
           <motion.article
             className='flex gap-4 flex-wrap px-2 py-2 ml-auto justify-center sm:justify-start'
             initial={{ x: 100, opacity: 0 }}
+            // viewport={{ once: true }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: 'linear', delay: 0.3 }}
           >
@@ -129,6 +132,7 @@ export default function Home() {
           <motion.article
             className='flex gap-4 flex-wrap px-2 py-2 justify-center sm:justify-start'
             initial={{ x: -100, opacity: 0 }}
+            // viewport={{ once: true }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: 'linear', delay: 0.3 }}
           >
@@ -149,21 +153,110 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='w-screen min-h-screen px-4 py-2 text-center leading-relaxed relative'>
-        <h2 className='py-2 font-bold text-3xl text-slate-800'>
-          Why NextLevel Food?
+      <section className='w-screen min-h-screen px-4 py-2 text-center leading-relaxed relative overflow-x-hidden'>
+        <h2 className='pt-8 pb-4 font-bold text-3xl text-slate-800'>
+          Why Use The Foodies App?
         </h2>
-        <div className='flex flex-col min-h-[400px] justify-evenly'>
-          <p className='tracking-wide subpixel-antialiased text-lg'>
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes,
-            and to connect with other food lovers.
-          </p>
-          <p className='tracking-wide subpixel-antialiased text-lg'>
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
-          </p>
-        </div>
+        <ol className='flex flex-col gap-4 min-h-[600px] justify-evenly items-center leading-loose'>
+          <AnimatePresence>
+            <motion.li
+              key={0}
+              layout
+              initial={{ opacity: 0, x: -400, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.8, type: 'spring', delay: 0.2 }}
+              className='w-[370px] flex flex-col gap-2 items-center'
+            >
+              <h4 className='text-amber-500 text-lg font-semibold'>
+                Vast Recipe Collection:
+              </h4>
+              <p>
+                Explore a wide variety of recipes, categorized by cuisine,
+                dietary restrictions, and meal types.
+              </p>
+            </motion.li>
+            <motion.li
+              key={1}
+              layout
+              initial={{ opacity: 0, x: -400, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.8, type: 'spring', delay: 0.4 }}
+              className='w-[370px] flex flex-col gap-2 items-center'
+            >
+              <h4 className='text-amber-500 text-lg font-semibold'>
+                Effortless Search:
+              </h4>
+              <p>
+                Find exactly what you need with our powerful search
+                functionality, whether you are looking for specific recipes or
+                ingredients.
+              </p>
+            </motion.li>
+            <motion.li
+              key={2}
+              layout
+              initial={{ opacity: 0, x: -400, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.8, type: 'spring', delay: 0.6 }}
+              className='w-[370px] flex flex-col gap-2 items-center'
+            >
+              <h4 className='text-amber-500 text-lg font-semibold'>
+                Personalized Experience:
+              </h4>
+              <p>
+                Save your favorite recipes for quick access and create a
+                personalized profile to track your cooking journey.
+              </p>
+            </motion.li>
+            <motion.li
+              key={3}
+              layout
+              initial={{ opacity: 0, x: -400, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.8, type: 'spring', delay: 0.8 }}
+              className='w-[370px] flex flex-col gap-2 items-center'
+            >
+              <h4 className='text-amber-500 text-lg font-semibold'>
+                Community Engagement:
+              </h4>
+              <p>
+                Share your own recipes with the community and get inspired by
+                others culinary creations.
+              </p>
+            </motion.li>
+            <motion.li
+              key={4}
+              layout
+              initial={{ opacity: 0, x: -400, scale: 0.5 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              // viewport={{ once: true }}
+              transition={{ duration: 0.8, type: 'spring', delay: 1 }}
+              className='w-[370px] flex flex-col gap-2 items-center'
+            >
+              <h4 className='text-amber-500 text-lg font-semibold'>
+                User-Friendly Interface:
+              </h4>
+              <p>
+                Enjoy a seamless and intuitive user experience with our Next.js
+                and Tailwind CSS-powered application.
+              </p>
+            </motion.li>
+          </AnimatePresence>
+        </ol>
+        <motion.h3
+          className='py-4 font-light text-amber-600 text-2xl'
+          initial={{ opacity: 0, x: -400, scale: 0.5 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          // viewport={{ once: true }}
+          transition={{ duration: 0.8, type: 'spring', delay: 1 }}
+        >
+          Get started with The Foodies App today and elevate your culinary
+          adventures!
+        </motion.h3>
       </section>
     </>
   );
