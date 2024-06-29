@@ -30,7 +30,7 @@ const IMAGES = [
 
 export default function ImageSlideGallery() {
   return (
-    <div className='relative w-[370px] h-[370px] shadow-lg'>
+    <div className='relative w-[370px] h-[370px] shadow-lg xs:shadow-sm'>
       <Swiper
         modules={[EffectCube, Pagination, Autoplay, Navigation]}
         navigation

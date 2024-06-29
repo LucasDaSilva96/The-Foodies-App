@@ -81,7 +81,7 @@ export default function Header() {
           />
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 300);
+              setTimeout(() => setIsOpen(false), 200);
             }}
             className={`${
               path === '/' ? 'scale-125 text-amber-500' : 'no-underline'
@@ -92,7 +92,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 300);
+              setTimeout(() => setIsOpen(false), 200);
             }}
             className={`${
               path === '/meals' ? 'scale-125 text-amber-500' : 'no-underline'
@@ -103,7 +103,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 300);
+              setTimeout(() => setIsOpen(false), 200);
             }}
             className={`${
               path === '/meals/share'
@@ -116,7 +116,7 @@ export default function Header() {
           </Link>
           <Link
             onClick={() => {
-              setTimeout(() => setIsOpen(false), 300);
+              setTimeout(() => setIsOpen(false), 200);
             }}
             className={`${
               path === '/community'
