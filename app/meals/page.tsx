@@ -21,7 +21,7 @@ async function Meals() {
 
 export default async function MealsPage() {
   return (
-    <>
+    <div>
       <header className='w-full min-h-64 text-center py-10 px-2'>
         <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md'>
           Delicious meals, created{' '}
@@ -45,6 +45,6 @@ export default async function MealsPage() {
           <Meals />
         </Suspense>
       </main>
-    </>
+    </div>
   );
 }

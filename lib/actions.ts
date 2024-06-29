@@ -31,11 +31,12 @@ export async function shareMeal(formData: FormData) {
     // Save the meal to the database
     await saveMeal(meal);
 
-    // Wait for a short period to ensure the image is available
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
     // Revalidate the meals page to show the new meal
-    revalidatePath('/meals', 'page');
+    revalidatePath('/meals');
+
+    // Wait for a short period to ensure the image is available
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
     // Redirect to the meals page
     redirect('/meals');
   } else {
