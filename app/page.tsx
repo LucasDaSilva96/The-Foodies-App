@@ -6,6 +6,7 @@ import MockUp1 from '@/assets/images/Mockup-1.png';
 import MockUp2 from '@/assets/images/Mockup-2.png';
 import MockUp3 from '@/assets/images/Mockup-3.png';
 import Image from 'next/image';
+import { User2Icon, Laptop, Mail } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -160,6 +161,7 @@ export default function Home() {
         <motion.ol className='flex flex-col gap-4 min-h-[600px] justify-evenly items-center leading-loose'>
           <AnimatePresence>
             <motion.li
+              key={0}
               initial={{ opacity: 0, x: 100, scale: 0.5 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -175,6 +177,7 @@ export default function Home() {
               </p>
             </motion.li>
             <motion.li
+              key={1}
               initial={{ opacity: 0, x: 100, scale: 0.5 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -191,6 +194,7 @@ export default function Home() {
               </p>
             </motion.li>
             <motion.li
+              key={2}
               initial={{ opacity: 0, x: 100, scale: 0.5 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -206,6 +210,7 @@ export default function Home() {
               </p>
             </motion.li>
             <motion.li
+              key={3}
               initial={{ opacity: 0, x: 100, scale: 0.5 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
@@ -221,10 +226,11 @@ export default function Home() {
               </p>
             </motion.li>
             <motion.li
+              key={4}
               initial={{ opacity: 0, x: 100, scale: 0.5 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, type: 'spring', delay: 1 }}
+              transition={{ duration: 0.8, type: 'spring', delay: 0.85 }}
               className='w-[370px] flex flex-col gap-2 items-center'
             >
               <h4 className='text-amber-500 text-lg font-semibold'>
@@ -242,12 +248,54 @@ export default function Home() {
           initial={{ opacity: 0, x: 100, scale: 0.5 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, type: 'spring', delay: 1 }}
+          transition={{ duration: 0.8, type: 'spring', delay: 0.85 }}
         >
           Get started with The Foodies App today and elevate your culinary
           adventures!
         </motion.h3>
       </section>
+      <footer className='w-screen h-[300px] bg-amber-600 text-slate-50  leading-relaxed relative overflow-hidden flex flex-col gap-2 items-center justify-evenly'>
+        <h2 className=' font-bold text-3xl justify-self-start'>Created by:</h2>
+        <div className='flex flex-col gap-4 items-center justify-center w-full'>
+          <motion.a
+            initial={{ opacity: 0, x: 100, scale: 0.5 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: 'spring', delay: 0.2 }}
+            href='https://www.linkedin.com/in/lucas-da-silva-9955911a0/'
+            target='_blank'
+            className='w-52 flex items-center justify-stretch gap-2 flex-wrap hover:underline hover:text-slate-50 transition-colors'
+          >
+            <User2Icon />
+            <span className='text-lg font-base'>Lucas Da Silva</span>
+          </motion.a>
+          <motion.a
+            initial={{ opacity: 0, x: 100, scale: 0.5 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: 'spring', delay: 0.4 }}
+            href='https://github.com/LucasDaSilva96'
+            target='_blank'
+            className='w-52 flex items-center justify-stretch gap-2 flex-wrap hover:underline hover:text-slate-50 transition-colors'
+          >
+            <Laptop />
+            <span className='text-lg font-base'>Software Developer</span>
+          </motion.a>
+
+          <motion.a
+            initial={{ opacity: 0, x: 100, scale: 0.5 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, type: 'spring', delay: 0.6 }}
+            href='mailto:dasilvajunior881@gmail.com'
+            target='_blank'
+            className='w-52 flex items-center justify-stretch gap-2 flex-wrap hover:underline hover:text-slate-50 transition-colors'
+          >
+            <Mail />
+            <span className='text-lg font-base'>Say Hello</span>
+          </motion.a>
+        </div>
+      </footer>
     </>
   );
 }

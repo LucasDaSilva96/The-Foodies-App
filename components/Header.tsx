@@ -55,16 +55,18 @@ export default function Header() {
       ref={headerRef}
       className='w-screen flex items-center justify-between overflow-x-hidden z-50 shadow-md py-2 '
     >
-      <aside className='flex gap-1 items-center min-w-52'>
-        <Image
-          src={logoImg}
-          alt='A plate with food on it'
-          width={50}
-          priority
-          className='ml-2'
-        />
-        <p className='font-extralight italic'>NextLevel Food</p>
-      </aside>
+      <Link href='/'>
+        <aside className='flex gap-1 items-center min-w-52'>
+          <Image
+            src={logoImg}
+            alt='A plate with food on it'
+            width={50}
+            priority
+            className='ml-2'
+          />
+          <p className='font-extralight italic'>NextLevel Food</p>
+        </aside>
+      </Link>
 
       <div className='hidden lg:block w-full'>
         <nav className=' flex items-center justify-evenly py-4'>

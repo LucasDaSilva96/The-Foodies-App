@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export type Meal = {
   title: string;
@@ -10,6 +13,12 @@ export type Meal = {
   creator: string;
   creator_email?: string;
   instructions?: string;
+  index?: number;
+};
+
+const variants = {
+  hidden: { opacity: 0, scale: 0.7 },
+  visible: { opacity: 1, scale: 1 },
 };
 
 export default function MealItem({
@@ -20,9 +29,16 @@ export default function MealItem({
   title,
   creator_email,
   instructions,
+  index,
 }: Meal) {
   return (
-    <article className='w-[300px] h-[450px] gap-3 flex flex-col items-center text-center border border-amber-500/40 py-2 rounded-md'>
+    <motion.article
+      variants={variants}
+      initial='hidden'
+      animate='visible'
+      transition={{ delay: index! * 0.25, duration: 0.5 }}
+      className='w-[300px] h-[450px] gap-3 flex flex-col items-center text-center border border-amber-500/40 py-2 rounded-md'
+    >
       <header>
         <Image
           src={image}
@@ -60,6 +76,6 @@ export default function MealItem({
       >
         View Details
       </Link>
-    </article>
+    </motion.article>
   );
 }

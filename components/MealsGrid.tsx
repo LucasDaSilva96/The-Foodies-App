@@ -8,8 +8,9 @@ type Props = {
 export default function MealsGrid({ mealItems }: Props) {
   return (
     <div className='w-full pb-4 px-4 flex flex-wrap gap-4 items-center'>
-      {mealItems.map((item) => (
+      {mealItems.map((item, index) => (
         <MealItem
+          index={index}
           creator={item.creator}
           image={item.image}
           slug={item.slug}
@@ -17,7 +18,7 @@ export default function MealsGrid({ mealItems }: Props) {
           title={item.title}
           creator_email={item.creator_email}
           instructions={item.instructions}
-          key={item.title}
+          key={item.title + `-${index}`}
         />
       ))}
     </div>

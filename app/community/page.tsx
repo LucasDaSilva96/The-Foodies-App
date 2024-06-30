@@ -1,8 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
-import mealIcon from '@/assets/icons/meal.png';
-import communityIcon from '@/assets/icons/community.png';
-import eventsIcon from '@/assets/icons/events.png';
+import CommunityList from '@/components/CommunityList';
 
 export const metadata = {
   title: 'Community',
@@ -26,35 +23,7 @@ export default function CommunityPage() {
           Community Perks
         </h2>
 
-        <ul className='flex flex-col items-center'>
-          <li className='flex flex-col items-center gap-4 text-xl font-semibold'>
-            <Image
-              src={mealIcon}
-              alt='A delicious meal'
-              loading='lazy'
-              className='max-w-56 drop-shadow-lg'
-            />
-            <p>Share & discover recipes</p>
-          </li>
-          <li className='flex flex-col items-center gap-4 text-xl font-semibold'>
-            <Image
-              src={communityIcon}
-              alt='A crowd of people, cooking'
-              loading='lazy'
-              className='max-w-56 drop-shadow-lg'
-            />
-            <p>Find new friends & like-minded people</p>
-          </li>
-          <li className='flex flex-col items-center gap-4 text-xl font-semibold'>
-            <Image
-              src={eventsIcon}
-              alt='A crowd of people at a cooking event'
-              loading='lazy'
-              className='max-w-56 drop-shadow-lg'
-            />
-            <p>Participate in exclusive events</p>
-          </li>
-        </ul>
+        <CommunityList />
       </main>
     </>
   );
