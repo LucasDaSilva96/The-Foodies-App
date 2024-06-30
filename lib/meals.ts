@@ -1,7 +1,6 @@
 import { S3 } from '@aws-sdk/client-s3';
 import { Meal } from '@/components/MealItem';
 import sql from 'better-sqlite3';
-import fs from 'fs';
 
 const s3 = new S3({
   region: 'eu-north-1',
