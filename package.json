@@ -11,6 +11,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",
     "@types/better-sqlite3": "^7.6.10",
+    "@vercel/postgres": "^0.9.0",
     "axios": "^1.7.2",
     "better-sqlite3": "^11.0.0",
     "framer-motion": "^11.2.12",

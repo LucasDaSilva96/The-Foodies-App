@@ -1,7 +1,5 @@
-const sql = require('better-sqlite3');
-const db = sql('meals.db');
-
-const dummyMeals = [
+import { sql } from '@vercel/postgres';
+const dummyMeal = [
   {
     title: 'Juicy Cheese Burger',
     slug: 'juicy-cheese-burger',
@@ -171,46 +169,18 @@ const dummyMeals = [
   },
 ];
 
-db.prepare(
-  `
-   CREATE TABLE IF NOT EXISTS meals (
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL,
-       title TEXT NOT NULL,
-       image TEXT NOT NULL,
-       summary TEXT NOT NULL,
-       instructions TEXT NOT NULL,
-       creator TEXT NOT NULL,
-       creator_email TEXT NOT NULL
-    )
-`
-).run();
+export async function initSQLdb() {
+  try {
+    sql`CREATE TABLE IF NOT EXISTS meals (meals_id SERIAL PRIMARY KEY, title TEXT, slug TEXT, image TEXT, summary TEXT, instructions TEXT, creator TEXT, creator_email TEXT)`;
 
-async function initData() {
-  const stmt = db.prepare(`
-      INSERT INTO meals VALUES (
-         null,
-         @slug,
-         @title,
-         @image,
-         @summary,
-         @instructions,
-         @creator,
-         @creator_email
-      )
-   `);
+    for (const meal of dummyMeal) {
+      await sql`INSERT INTO meals (title, slug, image, summary, instructions, creator, creator_email)
+        VALUES (${meal.title}, ${meal.slug}, ${meal.image}, ${meal.summary}, ${meal.instructions}, ${meal.creator}, ${meal.creator_email})
+      `;
+    }
 
-  for (const meal of dummyMeals) {
-    stmt.run(meal);
+    console.log('Database initialized successfully');
+  } catch (error) {
+    console.error('Error initializing database:', error);
   }
 }
-
-// Delete a meal by its slug
-// function deleteMealFromDB(creator: string) {
-//   const stmt = db.prepare(`DELETE FROM meals WHERE creator = ?`);
-//   stmt.run(creator);
-// }
-
-// deleteMealFromDB('Lucas');
-
-initData();

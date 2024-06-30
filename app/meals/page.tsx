@@ -14,7 +14,13 @@ async function Meals() {
 
   return (
     <div className='w-[85%]'>
-      <MealsGrid mealItems={meals} />
+      {meals && meals.length > 0 ? (
+        <MealsGrid mealItems={meals} />
+      ) : (
+        <p className='text-center text-2xl text-amber-600 font-semibold'>
+          No meals found.
+        </p>
+      )}
     </div>
   );
 }

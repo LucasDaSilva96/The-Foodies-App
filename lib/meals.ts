@@ -1,6 +1,6 @@
 import { S3 } from '@aws-sdk/client-s3';
 import { Meal } from '@/components/MealItem';
-import sql from 'better-sqlite3';
+import { sql } from '@vercel/postgres';
 
 const s3 = new S3({
   region: 'eu-north-1',
@@ -10,28 +10,28 @@ const s3 = new S3({
   },
 });
 
-const db = sql('meals.db');
-
 export async function getMeals() {
   // Fetch the result from the database
-  const res = db.prepare('SELECT * FROM meals').all();
+  const res = await sql`SELECT * FROM meals row`;
 
   // Type assertion to Meal[]
-  const meals: Meal[] = res as Meal[];
+  const meals = res.rows;
 
   if (meals) {
-    return meals;
+    return meals as Meal[];
   } else {
     return [];
   }
 }
 
-export function getMeal(slug: string) {
-  const res = db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
+export async function getMeal(slug: string) {
+  // Fetch the result from the database with the given slug
+  const res = await sql`SELECT * FROM meals WHERE slug = ${slug}`;
 
-  const meal: Meal = res as Meal;
+  // Extract the first meal from the result
+  const meal: unknown = res.rows[0];
 
-  return meal;
+  return meal as Meal;
 }
 
 export async function saveMeal(meal: Meal) {
@@ -60,14 +60,5 @@ export async function saveMeal(meal: Meal) {
       'https://lucasdasilva-nextjs-users-image.s3.eu-north-1.amazonaws.com/gallery.png';
   }
 
-  db.prepare(
-    `INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (
-      @title,
-      @summary,
-      @instructions,
-      @creator,
-      @creator_email,
-      @image,
-      @slug)`
-  ).run(meal);
+  await sql`INSERT INTO meals (title, slug, image, summary, instructions, creator, creator_email) VALUES (${meal.title}, ${meal.slug}, ${meal.image}, ${meal.summary}, ${meal.instructions}, ${meal.creator}, ${meal.creator_email})`;
 }

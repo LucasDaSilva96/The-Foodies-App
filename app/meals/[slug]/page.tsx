@@ -9,7 +9,7 @@ type GenerateMetadataProps = {
 };
 
 export async function generateMetadata({ params }: GenerateMetadataProps) {
-  const meal = getMeal(params.slug);
+  const meal = await getMeal(params.slug);
 
   if (!meal) {
     notFound();
@@ -27,9 +27,9 @@ type SlugProps = {
   params: { slug: string };
 };
 
-export default function MealSlugPage({ params }: SlugProps) {
-  const meal = getMeal(params.slug);
-
+export default async function MealSlugPage({ params }: SlugProps) {
+  const meal = await getMeal(params.slug);
+  console.log(meal);
   if (!meal)
     return (
       <h1 className='text-4xl text-amber-600 font-bold tracking-normal uppercase drop-shadow-md'>
