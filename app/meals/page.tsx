@@ -1,8 +1,8 @@
 import MealsGrid from '@/components/MealsGrid';
-import { getMeals } from '@/lib/meals';
 import Link from 'next/link';
 import { LoaderIcon } from 'lucide-react';
 import React, { Suspense } from 'react';
+import { getMeals } from '@/lib/meals';
 
 export const metadata = {
   title: 'Meals',

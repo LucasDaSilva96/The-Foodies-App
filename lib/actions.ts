@@ -1,8 +1,7 @@
 'use server';
 import { redirect } from 'next/navigation';
-import { saveMeal } from './meals';
 import { revalidatePath } from 'next/cache';
-import axios from 'axios';
+import { saveMeal } from './meals';
 
 function validateForm(formData: FormData) {
   const title = formData.get('title') as string;
@@ -20,22 +19,17 @@ function validateForm(formData: FormData) {
 
 export async function shareMeal(formData: FormData) {
   if (validateForm(formData)) {
-    // const meal = {
-    //   title: formData.get('title') as string,
-    //   summary: formData.get('summary') as string,
-    //   creator: formData.get('name') as string,
-    //   creator_email: formData.get('email') as string,
-    //   image: formData.get('image') as File,
-    //   instructions: formData.get('instructions') as string,
-    // };
+    const meal = {
+      title: formData.get('title') as string,
+      summary: formData.get('summary') as string,
+      creator: formData.get('name') as string,
+      creator_email: formData.get('email') as string,
+      image: formData.get('image') as File,
+      instructions: formData.get('instructions') as string,
+    };
 
     // Save the meal to the database
-    // await saveMeal(meal);
-    await axios.post('/api/share', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    await saveMeal(meal);
 
     // Revalidate the meals page to show the new meal
     revalidatePath('/meals');
