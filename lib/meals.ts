@@ -37,7 +37,7 @@ export function getMeal(slug: string) {
 export async function saveMeal(meal: Meal) {
   meal.slug = meal.title.toLowerCase().replace(/\s/g, '-');
 
-  if (meal.image.name !== 'undefined' && meal.image.size > 0) {
+  if (meal.image && meal.image.name !== 'undefined' && meal.image.size > 0) {
     // Save the image to the public/images directory
     const extension = meal.image.name.split('.').pop();
     const fileName = `${meal.title}${Date.now()}.${extension}`.toLowerCase();
